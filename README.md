@@ -1,24 +1,20 @@
-# README
+This exercise contains a [script for de-identifying](https://github.com/kenberland/exercise/blob/master/bin/cleanse.rb) a postgres database.  It uses Rails to generate some sample data, so that it has something to work on.  It uses [rvm](https://rvm.io/) to virtualize the ruby version and gemset, so it has a `.ruby-version` and `.ruby-gemset`.  You'll need to have postgres installed as well.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running it:
 
-Things you may want to cover:
+    bundle
+    rake db:drop db:create db:setup
+this makes the "exercise" database
 
-* Ruby version
+    rake exercise:make_fake
+this loads 10 users and 10 w9's
 
-* System dependencies
+    NUM=100 rake exercise:make_fake
+this would load 100
 
-* Configuration
+    createdb newdb
+makes a db to receive the data, and
 
-* Database creation
+    pg_dump exercise | rails r ./bin/cleanse.rb | psql newdb
+runs the script
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
