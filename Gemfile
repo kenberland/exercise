@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'bcrypt'
 gem 'faker'
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
